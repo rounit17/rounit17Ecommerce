@@ -24,7 +24,7 @@ const MidSection = () => {
     return (
         //Fragment
         <>
-        //Screen is divided into 12 parts
+        {/* Screen is divided into 12 parts */}
             <Wrapper lg={12} sm={12} md={12} xs={12} container>
                 {
                     imageURL.map(image => (

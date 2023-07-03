@@ -1,5 +1,5 @@
 import paytmchecksum from '../paytm/PaytmChecksum.js';
-import { paytmParams, paytmMerchantKey } from '../server.js';
+import { paytmParams, paytmMerchantKey } from '../index.js';
 
 
 import formidable from 'formidable';
@@ -31,7 +31,7 @@ export const paytmResponse = (request, response) => {
         paytmParams['MID'] = request.body.MID;
         paytmParams['ORDERID'] = request.body.ORDERID;
 
-        paytmchecksum.generateSignature(paytmParams, paytmMerchantKey).then(function(checksum) {
+        paytmchecksum.generateSignature(paytmParams, paytmMerchantKey).then(function (checksum) {
             paytmParams['CHECKSUMHASH'] = checksum;
 
             let post_data = JSON.stringify(paytmParams);
@@ -48,10 +48,11 @@ export const paytmResponse = (request, response) => {
 
             let res = "";
             let post_req = https.request(options, function (post_res) {
-                post_res.on('data', function(chunk) {
+                post_res.on('data', function (chunk) {
                     res += chunk;
                 });
 
+                // http://localhost:3000/
                 post_res.on('end', function () {
                     let result = JSON.parse(res)
                     response.redirect('')

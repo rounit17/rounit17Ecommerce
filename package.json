@@ -2,14 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "index.js",
   "type": "module",
   "scripts": {
-    "start": "node server.js",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "client-install": "cd client && npm install",
-    "client-build": "cd client && npm run build",
-    "heroku-postbuild": "npm run client-install && npm run client-build"
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Rounit",
   "license": "ISC",
@@ -21,8 +18,11 @@
     "formidable": "^3.5.0",
     "https": "^1.0.0",
     "mongoose": "^7.3.0",
-    "nodemon": "^2.0.22",
+    "path": "^0.12.7",
     "paytmchecksum": "^1.5.0",
     "uuid": "^9.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   }
 }
